@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -93,7 +91,3 @@ return redirect()->route('tasks.index')->with('success', 'Task deleted successfu
 }
 }
 
-abstract class Controller
-{
-    //
-}
