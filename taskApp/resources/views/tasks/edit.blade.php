@@ -8,7 +8,7 @@
 @method('PUT') {{-- Important for updating (PUT/PATCH) --}}
 <div>
 <label for="task_name">Task Name:</label>
-<input type="text" name="task_name" id="task_name"
+<input class="border border-black" type="text" name="task_name" id="task_name"
 value="{{ old('task_name', $task->task_name) }}">
 @error('task_name')
 <div style="color: red;">{{ $message }}</div>
@@ -16,7 +16,7 @@ value="{{ old('task_name', $task->task_name) }}">
 </div>
 <div>
 <label for="task_location">Location:</label>
-<input type="text" name="task_location" id="task_location"
+<input class="border border-black" type="text" name="task_location" id="task_location"
 value="{{ old('task_location', $task->task_location) }}">
 @error('task_location')
 <div style="color: red;">{{ $message }}</div>
@@ -24,7 +24,7 @@ value="{{ old('task_location', $task->task_location) }}">
 </div>
 <div>
 <label for="time_complexity">Time Complexity:</label>
-<input type="number" name="time_complexity" id="time_complexity"
+<input class="border border-black" type="number" name="time_complexity" id="time_complexity"
 value="{{ old('time_complexity', $task->time_complexity) }}" min="1" max="5">
 @error('time_complexity')
 <div style="color: red;">{{ $message }}</div>
@@ -32,7 +32,7 @@ value="{{ old('time_complexity', $task->time_complexity) }}" min="1" max="5">
 </div>
 <div>
 <label for="materials_required">Materials Required:</label>
-<input type="text" name="materials_required" id="materials_required"
+<input class="border border-black" type="text" name="materials_required" id="materials_required"
 value="{{ old('materials_required', $task->materials_required) }}">
 @error('materials_required')
 <div style="color: red;">{{ $message }}</div>
@@ -40,7 +40,7 @@ value="{{ old('materials_required', $task->materials_required) }}">
 </div>
 <div>
 <label for="deadline">Deadline:</label>
-<input type="date" name="deadline" id="deadline"
+<input class="border border-black" type="date" name="deadline" id="deadline"
 value="{{ old('deadline', $task->deadline) }}">
 @error('deadline')
 <div style="color: red;">{{ $message }}</div>
@@ -48,7 +48,7 @@ value="{{ old('deadline', $task->deadline) }}">
 </div>
 <div>
 <label for="priority">Priority:</label>
-<input type="number" name="priority" id="priority"
+<input class="border border-black" type="number" name="priority" id="priority"
 value="{{ old('priority', $task->priority) }}" min="1" max="3">
 @error('priority')
 <div style="color: red;">{{ $message }}</div>
@@ -56,18 +56,18 @@ value="{{ old('priority', $task->priority) }}" min="1" max="3">
 </div>
 <div>
 <label for="category">Category:</label>
-<input type="text" name="category" id="category"
+<input class="border border-black" type="text" name="category" id="category"
 value="{{ old('category', $task->category) }}">
 @error('category')
 <div style="color: red;">{{ $message }}</div>
 @enderror
 </div>
-<button class="btn btn-primary bg-green-500 p-2 m-1 border border-green-600 rounded" type="submit">Update Task</button>
+<button class="btn btn-primary bg-green-500 p-2 m-1 border border-green-600 rounded text-black" type="submit">Update Task</button>
 </form>
 <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
 @csrf
 @method('DELETE')
-<button class="btn btn-secondary bg-red-500 p-2 m-1 border border-red-600 rounded" type="submit">
+<button class="btn btn-secondary bg-red-500 p-2 m-1 border border-red-600 rounded text-black" type="submit">
 Delete Task
 </button>
 </form>

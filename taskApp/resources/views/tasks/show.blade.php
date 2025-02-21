@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="flex flex-col justify-center text-center bg-red-900 border rounded-lg p-4 pb-6 text-white w-1/2">
+<div class="flex flex-col justify-center text-center bg-red-900 border border-black rounded-lg p-4 pb-6 text-white w-1/2">
 <h1 class="text-lg font-bold m-4 bg-yellow-600 text-black border border-yellow-600 rounded">Task Details</h1>
 <div class="flex flex-col text-left relative left-20">
 <div>
