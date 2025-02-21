@@ -1,44 +1,44 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="max-w-2xl mx-auto p-4 bg-red-900 border rounded">
-<h1 class="text-3xl text-white font-bold mb-4">Create New Task</h1>
-<form action="" method="POST">
+<div class="max-w-2xl mx-auto p-4 bg-red-900">
+<h1 class="text-2xl font-bold mb-4 text-white">Create New Task</h1>
+<form action="{{ route('tasks.store') }}" method="POST">
 @csrf
 {{-- Task Name --}}
 <div class="mb-4">
-    <label for="task_name" class="block mb-1 text-white">Task Name</label>
-<input type="text" name="task_name" id="task_name" required
-class="w-full bg-yellow-600 border border-black rounded px-3 py-2">
-<!-- GUIDANCE
-- Add a label for Task Name (e.g., <label for="task_name">Task Name</label>)
-- The label's 'for' should match the input's 'id'.
-- Create an <input type="text"> with name="task_name" and id="task_name".
-- Consider making it required.
-- Add a placeholder like "e.g., Take out trash".
--->
+<label for="task_name" class="block mb-1 text-white">Task Name</label>
+<input type="text"
+name="task_name"
+id="task_name"
+required
+pattern="^[a-zA-Z0-9\s\-_]{3,255}$"
+title="Task name must be 3-255 characters long and can contain letters, numbers, spaces, hyphens"
+class="w-full bg-yellow-600 border border-black rounded px-3 py-2"
+oninvalid="this.setCustomValidity('Please enter a valid task name')"
+oninput="this.setCustomValidity('')">
+
 </div>
 {{-- Task Location --}}
 <div class="mb-4">
-    <label for="task_location" class="block mb-1 text-white">Location (Optional)</label>
-<input type="text" name="task_location" id="task_location"
+<label for="task_location" class="block mb-1 text-white">Location (Optional)</label>
+<input type="text"
+name="task_location"
+id="task_location"
+pattern="^[a-zA-Z0-9\s\-_,]{0,255}$"
+title="Location can contain letters, numbers, spaces, hyphens, underscores and commas"
 class="w-full bg-yellow-600 border border-black rounded px-3 py-2">
-<!-- GUIDANCE:
-- Add a label for "Location" (e.g., <label for="task_location">Location</label>)
-- The label's 'for' should match the input's 'id'.
-- Create an <input type="text"> with name="task_location" and id="task_location".
-- Indicate optional or required status.
-- Add a placeholder like "Kitchen, Garage," etc.
--->
+
 </div>
 
 <label for="time_complexity" class="block mb-1 text-white">Time Estimate</label>
 <select name="time_complexity" id="time_complexity" required
 class="w-full border rounded px-3 py-2 bg-yellow-600 border-black">
-<option value="1">~10 minutes</option>
-<option value="2">~30 minutes</option>
-<option value="3">~1 hour</option>
-<option value="4">~4 hours</option>
-<option value="5">~1 day</option>
+<option value="1">*10 minutes</option>
+<option value="2">*30 minutes</option>
+<option value="3">*1 hour</option>
+<option value="4">*4 hours</option>
+<option value="5">*1 day</option>
 </select>
 {{-- Time Estimate (or Time Complexity) --}}
 <div class="mb-4">
@@ -66,7 +66,7 @@ placeholder="e.g., Trash Bags, Broom">
 <div class="mb-4">
 
     <label for="deadline" class="block mb-1 text-white">Deadline (Optional)</label>
-<input type="datetime-local" name="deadline" id="deadline"
+<input type="date-local" name="deadline" id="deadline"
 class="w-full border rounded px-3 py-2 bg-yellow-600 border-black">
 <!-- GUIDANCE:
 - Add a label for "Deadline" (<label for="deadline">Deadline</label>)
@@ -93,21 +93,18 @@ class="w-full border rounded px-3 py-2 bg-yellow-600 border-black">
 </div>
 {{-- Category (Optional) --}}
 <div class="mb-4">
-
-    <label for="category" class="block mb-1 text-white">Category (Optional)</label>
-<input type="text" name="category" id="category"
+<label for="category" class="block mb-1 text-white">Category (Optional)</label>
+<input type="text"
+name="category"
+id="category"
+pattern="^[a-zA-Z\s]{0,50}$"
+title="Category must contain only letters and spaces"
 class="w-full border rounded px-3 py-2 bg-yellow-600 border-black"
 placeholder="e.g., chores, work, health">
-<!-- GUIDANCE:
-- Add a label for "Category" (e.g., <label for="category">Category</label>)
-- The label's 'for' should match the input's 'id'.
-- Create an <input type="text"> for name="category".
-- Add a placeholder like "e.g., chores, work, health".
--->
+
 </div>
 {{-- Submit and Cancel Buttons --}}
 <div class="flex gap-4">
-
     <button type="submit"
 class="bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-600">
 Create Task
